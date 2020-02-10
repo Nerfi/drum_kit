@@ -3,7 +3,9 @@ const button = document.querySelectorAll("button");
   button.forEach((button) => {
     button.addEventListener("click", function(){
         const letter = this.innerHTML;
+
         makeSound(letter);
+
         addAnimationButton(letter);
 
     });
@@ -67,6 +69,9 @@ function makeSound(key){
 
 function addAnimationButton(currenButton) {
     const activeButton = document.querySelector("." + currenButton);
-    activeButton.classList.toggle("pressed");
-    //add setTimeout to remove the presses class after 3 seconds
+    activeButton.classList.add("pressed");
+ setTimeout(() => {
+    activeButton.classList.remove("pressed");
+ },100)
+
 }
